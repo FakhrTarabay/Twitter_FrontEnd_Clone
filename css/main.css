@@ -1,0 +1,973 @@
+/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 14px;
+  align-self: center;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  align-self: center;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(22px);
+  -ms-transform: translateX(22px);
+  transform: translateX(22px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+  display: flex;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .sr-only class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+body {
+  background-color: rgb(21, 32, 43);
+  scrollbar-color: rgb(107, 125, 140) rgb(25, 39, 52);
+}
+
+.big-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+.top-mobile,.top-desk {
+  display: flex;
+  height: 52.5px;
+  flex-direction: row;
+  padding: 0px 15px 0px 15px;
+  justify-content: space-evenly;
+}
+.top-desk {
+  border-bottom: 1.5px solid #38444d;
+}
+.center-mobile {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  border-top: 1.5px solid #3d5466;
+  border-bottom: 1.5px solid #38444d;
+  justify-content: center;
+}
+.bottom-mobile {
+  display: flex;
+  height: 52.5px;
+  justify-content: space-around;
+}
+#c1,#c11 {
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+}
+#c2 {
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 18px;
+}
+p,span,
+#logout {
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Ubuntu, Helvetica Neue, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+#p1,#p11 {
+  font-weight: 800;
+  font-size: 19px;
+}
+#p2,#p22 {
+  margin-top: 35px;
+  display: flex;
+  align-self: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+#p3,#p33 {
+  color: rgb(136, 153, 166);
+  margin-top: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+.p4 {
+  display: flex;
+  align-self: center;
+  font-weight: bold;
+}
+
+.icon {
+  display: flex;
+  width: 26.25px;
+  height: 26.25px;
+  margin: 0px;
+  padding: 13.125px;
+  fill: #1da1f2;
+}
+.icon2 {
+  align-self: center;
+  width: 22.5px;
+  height: 22.5px;
+  fill: rgb(29, 161, 242);
+}
+.icon3 {
+  width: 18.75px;
+  height: 18.75px;
+  fill: rgb(136, 153, 166);
+}
+.icon4 {
+  width: 26.25px;
+  height: 26.25px;
+  fill: white;
+}
+.icon4s {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+.icon5 {
+  align-self: center;
+  width: 22.5px;
+  height: 22.5px;
+  fill: rgb(29, 161, 242);
+}
+.icon6 {
+  align-self: center;
+  width: 18.75px;
+  height: 18.75px;
+  fill:  rgb(136, 153, 166);
+}
+.btn {
+  display: flex;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #162d3f;
+  transition: 0.2s ease-in-out;
+}
+.btn1 {
+  display: flex;
+  background: transparent;
+  border: none;
+  outline: none;
+  justify-content: space-around;
+  width: 37.4px;
+  height: 37.4px;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+}
+.btn1:hover {
+  background-color: #162d3f;
+  transition: 0.2s ease-in-out;
+}
+#prof {
+  height: 29.4px;
+  width: 29.4px;
+  margin-top: 10.9px;
+  margin-bottom: 10.9px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#prof2 {
+  height: 39px;
+  width: 39px;
+  margin-top: 10.9px;
+  margin-bottom: 10.9px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#prof3 {
+  height: 39px;
+  width: 39px;
+  margin-top: 10.9px;
+  margin-bottom: 10.9px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#prof4 {
+  height: 49px;
+  width: 49px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#stars,#starss {
+  fill: #1da1f2;
+  height: 60%;
+  width: 80%;
+  padding-left: 8px;
+  padding-bottom: 1.5px;
+}
+.flexb {
+  display: flex;
+}
+.itemb {
+  display: flex;
+  align-self: center;
+}
+.centm {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#letsgobutton,#letsgobutton1 {
+  margin-top: 20px;
+  color: white;
+  display: flex;
+  width: 84.55px;
+  height: 37px;
+  background-color: #1da1f2;
+  box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 10px,
+    rgba(136, 153, 166, 0.25) 0px 1px 3px 1px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Ubuntu, Helvetica Neue, sans-serif;
+  justify-content: space-evenly;
+  cursor: pointer;
+  border-radius: 16px;
+  align-self: center;
+}
+#tweet {
+  display: flex;
+  width: 59px;
+  height: 59px;
+  border-radius: 50%;
+  background-color: #1da1f2;
+  justify-content: space-around;
+  cursor: pointer;
+  margin-right: 18px;
+  box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 10px,
+    rgba(136, 153, 166, 0.25) 0px 1px 3px 1px;
+}
+#tweet:hover,
+#letsgobutton:hover {
+  background-color: #1a91da;
+  transition: 0.2s ease-in-out;
+}
+.tweeticon {
+  display: flex;
+  width: 22.5px;
+  height: 22.5px;
+  fill: white;
+  align-self: center;
+}
+#f1 {
+  width: 59px;
+}
+#f2,#f22 {
+  flex-grow: 1;
+}
+#f3,#f33 {
+  width: 30px;
+  margin-left: 20px;
+}
+.sidebar {
+  height: 100vh;
+  width:0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(21, 32, 43);
+  overflow-x: hidden;
+  transition: 250ms ease;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-start;
+  font-size: 15px;
+  white-space: nowrap;
+  box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 10px,
+    rgba(136, 153, 166, 0.25) 0px 1px 3px 1px;
+}
+.sideitem {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid rgb(56, 68, 77);
+}
+#sec1 {
+  height: 53px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#sec1 p {
+  display: flex;
+  flex-grow: 1;
+  align-self: center;
+  font-size: 19px;
+  font-weight: 900;
+}
+#sec1 button {
+  align-self: center;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+}
+#sec2 {
+  flex-direction: column;
+  flex-grow: 1;
+}
+#sec2 p {
+  text-align: start;
+}
+#midsec1,
+#midsec2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#midsec1 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#midsec2 {
+  flex-grow: 1;
+  overflow: scroll;
+}
+.minisecs {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.minisecs:hover {
+  background-color: #192734;
+  transition: 250ms ease;
+}
+.minisecs p,
+#logout {
+  margin-left: 10px;
+  align-self: center;
+}
+.bord {
+  border-bottom: 1px solid rgb(56, 68, 77);
+}
+.special {
+  justify-content: space-between;
+}
+#logout {
+  margin: 0px;
+}
+.minisecs a {
+  align-self: center;
+}
+#minisec1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.minisec2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#minisec3 {
+  display: flex;
+  justify-content: flex-start;
+}
+#minisec1 button {
+  border: 1px solid rgb(29, 161, 242);
+  width: 30px;
+  height: 30px;
+  align-self: center;
+  justify-content: center;
+}
+#accountname,#accountname2 {
+  font-weight: bold;
+}
+#accountname1,#accountname11 {
+  color: rgb(136, 153, 166);
+}
+#follow {
+  color: rgb(136, 153, 166);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+.desktop {
+  display:flex;
+  flex-direction: row;
+}
+.left-desk {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 402.1px;
+  border-right: 1px solid rgb(56, 68, 77);
+}
+.left-desk-p1 {
+  display: flex;
+  flex-direction: column;
+  height: 553px;
+  width: 275px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.yalaayesm {
+  align-self: center;
+  margin-left: 10px;
+}
+.left-desk-p2 {
+  display: flex;
+  flex-direction: column;
+  width: 275px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.left-desk-item {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.left-desk-itemS {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+.left-desk-btnS{
+  display: flex;
+  padding: 10px;
+  background:#1da1f2;
+  color: white;
+  border: none;
+  outline: none;
+  width:100%;
+  height: 49px;
+  border-radius: 9999px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.left-desk-btnS:hover {
+  background-color: #1a91da;
+  transition: 0.2s ease;
+}
+.left-desk-btn{
+  display: flex;
+  padding: 10px;
+  background: none;
+  border: none;
+  outline: none;
+  border-radius: 9999px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.left-desk-item:hover .left-desk-btn{
+  background-color: #162d40;
+  transition: 0.2ms ease;
+}
+.left-desk-item:hover .icon4{
+  fill:#1da1f2;
+  transition: 0.2ms ease;
+}
+.left-desk-item:hover .icon4s{
+  fill:#1da1f2;
+  transition: 0.2ms ease;
+}
+.left-desk-item:hover .left-desk-text{
+  color:#1da1f2;
+  transition: 0.2ms ease;
+}
+.left-desk-text,.left-desk-textS {
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  Ubuntu, Helvetica Neue, sans-serif;
+}
+.left-desk-textS {
+  margin-left: 0px;
+}
+.right-desk {
+  display: flex;
+  height: 100vh;
+  width: 990px;
+  flex-direction: row;
+}
+.center-desk {
+  display: flex;
+  flex-direction: column;
+  max-width:600px;
+  height: 100vh;
+  border-right: 1px solid rgb(56, 68, 77);
+}
+.center-center-desk {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 15px 5px 15px;
+  border-bottom: 10px solid rgb(37, 51, 65);
+}
+.prof-tweet  {
+  display: flex;
+  flex-direction: row;
+}
+.prof-center {
+  padding-top: 5px;
+  margin-right: 10px;
+}
+.btns-tweet{
+  display: flex;
+  height: 49px;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 59px;
+}
+.btns-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 0px;
+  width:185px;
+  justify-content: space-evenly;
+  align-self: flex-start;
+  align-self:center;
+}
+.tweet-text {
+  display: flex;
+  align-self: center;
+  width: 100%;
+}
+.tweetbox {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgb(136, 153, 166);
+  font-size: 20px;
+  font-weight: 400;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  Ubuntu, Helvetica Neue, sans-serif;
+}
+.search-bar-cont{
+  background-color: rgb(37, 51, 65);
+  width: 300px;
+  height: 40px;
+  border-radius: 20px;
+  outline: none;  
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border:1px solid #2fa0e5;
+  align-self: center;
+  margin-top: 8px;
+}
+.whatshappening {
+  background-color: #192734;
+  width: 300px;
+  height: 400px;
+  border-radius: 20px;
+  outline: none;  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: center;
+  margin-top: 40px;
+}
+.whatstitle {
+  color: white;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 900;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  Ubuntu, Helvetica Neue, sans-serif;
+  padding: 10px;
+}
+.whatsitem {
+  display: flex;
+  border-bottom: 1px solid rgb(56, 68, 77);
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 300px;
+  justify-content: flex-start;
+  align-self: center;
+}
+.footitem,.footitemS {
+  display: flex;
+  font-size: 13px;
+  margin-left:10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  Ubuntu, Helvetica Neue, sans-serif;
+  color: rgb(136, 153, 166);
+}
+.footitem:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.searchbarform{
+  display: flex;
+  align-self: center;
+}
+.searchbar {
+  background-color: rgb(37, 51, 65);
+  border: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  Ubuntu, Helvetica Neue, sans-serif;
+  color: rgb(136, 153, 166);
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.searchbarico {
+  display: flex;
+  align-content: center;
+  width: 40px;
+  height:40px;
+  justify-content: center;
+}
+.tweet {
+  display: flex;
+  width: 100%;
+  height: 49px;
+}
+.tweet-center{
+  align-self: center;
+  justify-self:flex-end;
+  width: 73px;
+}
+.tweet-btn {
+  display: flex;
+  border: none;
+  color: white;
+  display: flex;
+  width: 73px;
+  height: 37px;
+  background-color: #1da1f2;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Ubuntu, Helvetica Neue, sans-serif;
+  justify-content: space-evenly;
+  cursor: pointer;
+  border-radius: 1666px;
+  align-content: center;
+}
+.right-r-desk {
+  display:flex;
+  width: 350px;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+@media screen and (min-width:500px){
+  .big-mobile {
+    display: none;
+  }
+}
+@media screen and (max-width:500px){
+  .desktop {
+    display: none;
+  }
+}
